@@ -3,8 +3,6 @@ FROM amazonlinux:latest
 
 RUN yum install httpd php -y
 RUN mkdir /run/php-fpm
-RUN sudo systemctl enable php-fpm
-RUN sudo systemctl start php-fpm
 
 # Copy a source Code in Container Image
 COPY src/   /var/www/html/ 
