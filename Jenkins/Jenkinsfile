@@ -22,8 +22,8 @@ pipeline {
                 dir('src/') {
                     withSonarQubeEnv('sonar-scanner') {
                         sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.projectName=test \
-                        -Dsonar.projectKey=test '''
+                        -Dsonar.projectName=testproject \
+                        -Dsonar.projectKey=testproject '''
                     }
                 }
             }
@@ -53,7 +53,7 @@ pipeline {
         stage("Image Create") {
             steps {
                 script{
-                    sh ' docker build -t testproject .'
+                    sh ' docker build -t phpweb .'
                 }
             }
         }
