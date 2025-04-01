@@ -22,8 +22,8 @@ pipeline {
                 dir('src/') {
                     withSonarQubeEnv('sonar-scanner') {
                         sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.projectName=jenkinstest \
-                        -Dsonar.projectKey=jenkinstest     '''
+                        -Dsonar.projectName=jenkins-test \
+                        -Dsonar.projectKey=jenkins-test     '''
                     }
                 }
             }
