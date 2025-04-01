@@ -22,8 +22,8 @@ pipeline {
                 dir('src/') {
                     withSonarQubeEnv('sonar-scanner') {
                         sh ''' $SCANNER_HOME/bin/sonar-scanner \
-                        -Dsonar.projectName=tarun \
-                        -Dsonar.projectKey=tarun '''
+                        -Dsonar.projectName=jenkinstest \
+                        -Dsonar.projectKey=jenkinstest     '''
                     }
                 }
             }
@@ -57,10 +57,10 @@ pipeline {
                 }
             }
         }
-        // stage("BuildContainer"){
-        //     steps {
-        //         sh 'docker run -dit --name web -p 80:80 dockerci:latest '
-        //     }
-        // }
+        stage("BuildContainer"){
+            steps {
+                sh 'docker run -dit --name webserver -p 80:80 phpweb:latest '
+            }
+        }
     }
 }
